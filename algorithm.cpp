@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <random>
 
-double ORDER_OF_CONV = 0.19;
+double CONVERGENCE_THRESHOLD = 0.19;
 
 using namespace std;
 
@@ -119,7 +119,7 @@ void adjust_teams(vector<vector<pair<string, string>>> &teams, double target_avg
                 min_index = i;
             }
         }
-        if (max_avg - target_avg < ORDER_OF_CONV && target_avg - min_avg < ORDER_OF_CONV)
+        if (max_avg - target_avg < CONVERGENCE_THRESHOLD && target_avg - min_avg < CONVERGENCE_THRESHOLD)
             break;
 
         int r1 = rand() % teams[max_index].size();
